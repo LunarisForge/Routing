@@ -2,6 +2,7 @@
   "name": "lunaris-forge/routing",
   "description": "Directs incoming requests to the appropriate actions.",
   "type": "library",
+  "license": "MIT",
   "autoload": {
     "psr-4": {
       "LunarisForge\\Routing\\": "src/Routing"
