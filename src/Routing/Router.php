@@ -124,8 +124,16 @@ class Router
                     /** @phpstan-ignore-next-line */
                     if (preg_match("#^$pattern$#", $uri, $matches)) {
                         array_shift($matches);
-                        /** @phpstan-ignore-next-line */
-                        return call_user_func_array($action, array_merge([$request], $matches));
+                        if (is_array($action)) {
+                            $controller = new $action[0]();
+                            $method = $action[1];
+
+                            /** @phpstan-ignore-next-line */
+                            return call_user_func_array([$controller, $method], array_merge([$request], $matches));
+                        } else {
+                            /** @phpstan-ignore-next-line */
+                            return call_user_func_array($action, array_merge([$request], $matches));
+                        }
                     }
                 }
             }

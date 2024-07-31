@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Routing;
+namespace Routing;
 
 use LunarisForge\Http\Enums\HttpStatus;
 use LunarisForge\Http\Request;
